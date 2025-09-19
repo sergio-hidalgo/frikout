@@ -14,8 +14,8 @@ interface CategoriesCardProps {
 export default function CategoriesCard({ category }: CategoriesCardProps) {
     return (
         <Card className="transition-transform duration-300 hover:scale-105 cursor-pointer">
-            <CardContent>
-                <img src={category.img.src} alt={category.title} className="rounded-xs" />
+            <CardContent className="w-full h-72 overflow-hidden">
+                <img src={category.img.src} alt={category.title} className="w-full h-full object-center object-cover rounded-xs" />
             </CardContent>
             <CardFooter>
                 <div className="flex flex-col items-center w-full mx-auto text-center">

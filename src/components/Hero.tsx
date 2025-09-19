@@ -1,38 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BookOpenText, Cog, Dices, Gamepad2, MapPin, LayoutList, VenetianMask } from "lucide-react";
-import marvelBg from "@/assets/marvel_bg.png";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { MapPin } from "lucide-react";
+import blueBg from "@/assets/blue_bg.png";
+import greenBg from "@/assets/green_bg.png";
+import orangeBg from "@/assets/orange_bg.png";
+import purpleBg from "@/assets/purple_bg.png";
+import redBg from "@/assets/red_bg.png";
+import yellowBg from "@/assets/yellow_bg.png";
+
+const backgrounds = [blueBg, greenBg, orangeBg, purpleBg, redBg, yellowBg];
 
 const cities = [
     "Toda España",
-    "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Málaga",
-    "Murcia", "Palma", "Las Palmas", "Bilbao", "Alicante", "Córdoba",
-    "Valladolid", "Vigo", "Gijón", "A Coruña", "Granada",
-    "Vitoria", "Oviedo", "Santa Cruz de Tenerife",
-    "Pamplona", "Almería", "San Sebastián", "Santander"
-];
-
-const categories = [
-    "Todas las categorías",
-    "Comics", "Cosplay", "D&Ds", "Figuras", "Gaming", "Modelado", "Eventos", "Steampunk"
-];
-
-const quickCategories = [
-    { id: "comics", label: "Cómics", icon: BookOpenText },
-    { id: "gaming", label: "Gaming", icon: Gamepad2 },
-    { id: "cosplay", label: "Cosplay", icon: VenetianMask },
-    { id: "d&ds", label: "D&Ds", icon: Dices },
-    { id: "steampunk", label: "Steampunk", icon: Cog },
+    "A Coruña", "Alicante", "Almería", "Barcelona", "Bilbao", "Córdoba", 
+    "Gijón", "Granada", "Las Palmas", "Madrid", "Málaga", "Murcia", "Oviedo", 
+    "Palma", "Pamplona", "San Sebastián", "Santa Cruz de Tenerife", "Santander", 
+    "Segovia", "Sevilla", "Valencia", "Valladolid", "Vigo", "Vitoria", "Zaragoza",  
 ];
 
 export function Hero() {
     const [selectedCity, setSelectedCity] = useState("Toda España");
-    const [selectedCategory, setSelectedCategory] = useState("Todas las categorías");
+    const [currentBackground, setCurrentBackground] = useState(0);
+
+    useEffect(() => {
+        const randomIndex = Math.floor(Math.random() * backgrounds.length);
+        setCurrentBackground(randomIndex);
+    }, []);
 
     return (
-        <section className="relative text-white py-18 md:py-22 bg-cover bg-center bg-no-repeat flex items-center"
-            style={{ backgroundImage: `url(${marvelBg.src})` }}
+        <section className="relative text-white py-52 md:py-32 bg-cover bg-center bg-no-repeat flex items-center"
+            style={{ backgroundImage: `url(${currentBackground === 0 ? blueBg.src : backgrounds[currentBackground].src})` }}
         >
         
             {/* Dark overlay for better text readability */}
@@ -57,12 +55,11 @@ export function Hero() {
                             <div className="relative">
                                 <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />                                
                                 <Select value={selectedCity} onValueChange={setSelectedCity}>
-                                    <SelectTrigger className="pl-12 h-12 pr-8 py-4 text-gray-900 rounded-xl border-0 focus:ring-2 focus:ring-primary bg-white min-w-90">
+                                    <SelectTrigger className="pl-12 h-12 pr-8 py-4 text-gray-900 font-normal rounded-xl border-0 focus:ring-2 focus:ring-primary bg-white min-w-90">
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent className="bg-white">
                                         <SelectGroup>
-                                            <SelectLabel>Ciudades</SelectLabel>
                                             {cities.map((city) => (
                                                 <SelectItem key={city} value={city}>
                                                     {city}
@@ -72,44 +69,10 @@ export function Hero() {
                                     </SelectContent>
                                 </Select>
                             </div>
-                            <div className="relative">
-                                <LayoutList className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                                    <SelectTrigger className="pl-12 h-12 pr-8 py-4 text-gray-900 rounded-xl border-0 focus:ring-2 focus:ring-primary bg-white min-w-90">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent className="bg-white">
-                                        <SelectGroup>
-                                            <SelectLabel>Categorías</SelectLabel>
-                                            {categories.map((category) => (
-                                                <SelectItem key={category} value={category}>
-                                                    {category}
-                                                </SelectItem>
-                                            ))}
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <Button size="lg" className="text-sm min-w-90 lg:min-w-40">
-                                Buscar
+                            <Button size="lg" className="text-sm font-normal min-w-90 lg:min-w-40">
+                                BUSCAR
                             </Button>
                         </div>
-                    </div>
-
-                    {/* Quick Categories area */}
-                    <div className="flex flex-wrap justify-center gap-3 mt-12">
-                        {quickCategories.map((category) => {
-                        const Icon = category.icon;
-                        
-                        return (
-                            <button
-                            key={category.id}
-                            className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium cursor-pointer hover:bg-white/30 transition-colors flex items-center">
-                                <Icon className="h-4 w-4 mr-2" />
-                                {category.label}
-                            </button>
-                            );
-                        })}
                     </div>
                 </div>
             </div>

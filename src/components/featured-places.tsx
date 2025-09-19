@@ -73,10 +73,10 @@ const places: Place[] = [
 
 export function FeaturedPlaces() {
     return (
-        <section className="py-30 lg:py-24 px-6 bg-gray-100">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center items-center justify-center">
+        <section className="relative py-30 lg:py-24 px-6 bg-gray-100">
+            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center items-center justify-center">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl lg:text-5xl font-bold text-secondary mb-4 select-none">Lugares Destacados</h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 select-none">Lugares Destacados</h2>
                     <p className="text-xl lg:text-2xl text-gray-500 select-none">Descubre los mejores lugares para vivir tu pasión friki</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -86,10 +86,11 @@ export function FeaturedPlaces() {
                 </div>
                 <div className="mt-12 flex justify-center">
                     <Button variant="default" size="lg" className="self-center min-w-1/3">
-                        <span className="text-md self-center">Ver todos los lugares</span>
+                        <span className="text-md font-normal self-center">VER TODOS LOS LUGARES</span>
                     </Button>
                 </div>
             </div>
+            <div className="absolute z-0 left-0 right-0 top-0 bottom-0 bg-[linear-gradient(to_right,#a3c24c_1px,transparent_1px),linear-gradient(to_bottom,#a3c24c_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_65%_80%_at_0%_50%,#000_70%,transparent_110%)]"></div>
         </section>
     )
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Castle, Crown, Menu, Milestone, Swords } from "lucide-react";
-import logoUrl from "../assets/logo_frikout.png";
+import { Menu } from "lucide-react";
+import logoUrl from "../assets/frikout_logo.png";
 
 
 interface HeaderProps {
@@ -50,96 +50,61 @@ export function Header({ currentPath = "/" }: HeaderProps) {
                         {/* Desktop Navigation */}
                         <div className="hidden xl:block">
                             <div className="ml-10 flex items-baseline space-x-2">
-                                <a href='/' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
-                                    <div>
-                                        <Castle className={`h-6 w-6 ${
+
+                                <a href='/' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">                                    <div className="relative flex flex-col items-left overflow-hidden">
+                                        <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
                                             isActive('/') 
                                                 ? 'text-secondary' 
-                                                : 'group-hover:text-secondary'
-                                        }`} />
-                                    </div>
-                                    <div className="flex flex-col items-left">
-                                        <span className={`text-md font-bold ${
+                                                : 'text-gray-700 group-hover:-translate-y-full'
+                                        }`}>INICIO</span>
+                                        <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
                                             isActive('/') 
-                                                ? 'text-secondary' 
-                                                : 'text-gray-700 group-hover:text-secondary'
-                                        }`}>Inicio</span>
-                                        <span className={`text-sm font-medium ${
-                                            isActive('/') 
-                                                ? 'text-secondary/80' 
-                                                : 'text-gray-500 group-hover:text-secondary'
-                                        }`}>Érase una vez...</span>
-                                    </div>
-                                    
+                                                ? 'translate-y-0' 
+                                                : 'group-hover:-translate-y-full'
+                                        }`}>INICIO</span>
+                                    </div> 
                                 </a>
 
-                                <a href='/lugares' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
-                                    <div>
-                                        <Milestone className={`h-6 w-6 ${
-                                            isActive('/lugares') 
+                                <a href='/sitios' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">                                    <div className="relative flex flex-col items-left overflow-hidden">
+                                        <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
+                                            isActive('/sitios') 
                                                 ? 'text-secondary' 
-                                                : 'group-hover:text-secondary'
-                                        }`} />
-                                    </div>
-                                    <div className="flex flex-col items-left">
-                                        <span className={`text-md font-bold ${
-                                            isActive('/lugares') 
-                                                ? 'text-secondary' 
-                                                : 'text-gray-700 group-hover:text-secondary'
-                                        }`}>Lugares</span>
-                                        <span className={`text-sm font-medium ${
-                                            isActive('/lugares') 
-                                                ? 'text-secondary/80' 
-                                                : 'text-gray-500 group-hover:text-secondary'
-                                        }`}>Para comprar</span>
-                                    </div>
-                                    
+                                                : 'text-gray-700 group-hover:-translate-y-full'
+                                        }`}>SITIOS</span>
+                                        <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
+                                            isActive('/sitios') 
+                                                ? 'translate-y-0' 
+                                                : 'group-hover:-translate-y-full'
+                                        }`}>SITIOS</span>
+                                    </div> 
                                 </a>
 
-                                <a href='/eventos' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
-                                    <div>
-                                        <Swords className={`h-6 w-6 ${
+                                <a href='/eventos' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">                                    <div className="relative flex flex-col items-left overflow-hidden">
+                                        <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
                                             isActive('/eventos') 
                                                 ? 'text-secondary' 
-                                                : 'group-hover:text-secondary'
-                                        }`} />
-                                    </div>
-                                    <div className="flex flex-col items-left">
-                                        <span className={`text-md font-bold ${
+                                                : 'text-gray-700 group-hover:-translate-y-full'
+                                        }`}>EVENTOS</span>
+                                        <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
                                             isActive('/eventos') 
-                                                ? 'text-secondary' 
-                                                : 'text-gray-700 group-hover:text-secondary'
-                                        }`}>Eventos</span>
-                                        <span className={`text-sm font-medium ${
-                                            isActive('/eventos') 
-                                                ? 'text-secondary/80' 
-                                                : 'text-gray-500 group-hover:text-secondary'
-                                        }`}>Para disfrutar</span>
-                                    </div>
-                                    
+                                                ? 'translate-y-0' 
+                                                : 'group-hover:-translate-y-full'
+                                        }`}>EVENTOS</span>
+                                    </div> 
                                 </a>
 
-                                <a href='/frikpro' className="flex flex-row gap-2 place-items-center px-4 py-3 rounded-full transition-colors group">
-                                    <div>
-                                        <Crown className={`h-6 w-6 ${
+                                <a href='/frikpro' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">                                    <div className="relative flex flex-col items-left overflow-hidden">
+                                        <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
                                             isActive('/frikpro') 
                                                 ? 'text-secondary' 
-                                                : 'group-hover:text-secondary'
-                                        }`} />
-                                    </div>
-                                    <div className="flex flex-col items-left">
-                                        <span className={`text-md font-bold ${
+                                                : 'text-gray-700 group-hover:-translate-y-full'
+                                        }`}>FRIKPRO</span>
+                                        <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
                                             isActive('/frikpro') 
-                                                ? 'text-secondary' 
-                                                : 'text-gray-700 group-hover:text-secondary'
-                                        }`}>frik<span className="text-md font-black text-secondary">pro</span></span>
-                                        <span className={`text-sm font-medium ${
-                                            isActive('/frikpro') 
-                                                ? 'text-secondary/80' 
-                                                : 'text-gray-500 group-hover:text-secondary'
-                                        }`}>Hazte Pro</span>
-                                    </div>
-                                    
+                                                ? 'translate-y-0' 
+                                                : 'group-hover:-translate-y-full'
+                                        }`}>FRIKPRO</span>
+                                    </div> 
                                 </a>
     
                             </div>
@@ -149,10 +114,10 @@ export function Header({ currentPath = "/" }: HeaderProps) {
                         <div className="hidden xl:block">
                             <div className="ml-10 flex items-baseline space-x-4">
                                 <Button variant="ghost" size="lg" className="self-center">
-                                    <span className="text-md self-center">Iniciar sesión</span>
+                                    <span className="text-md font-normal self-center">INICIAR SESIÓN</span>
                                 </Button>
                                 <Button variant="default" size="lg" className="self-center">
-                                    <span className="text-md self-center">Registrarse</span>
+                                    <span className="text-md font-normal self-center">REGISTRARSE</span>
                                 </Button>
                             </div>
                         </div>
@@ -163,107 +128,76 @@ export function Header({ currentPath = "/" }: HeaderProps) {
                                 <SheetTrigger asChild>
                                     <Menu className="h-12 w-auto rounded-full p-2 hover:bg-secondary/50 transition-colors" />
                                 </SheetTrigger>
-                                <SheetContent side="right" className="w-80 sm:w-100">
-                                    <div className="flex flex-col space-y-4 mt-8">
-                                        <a href='/' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
-                                            <div>
-                                                <Castle className={`h-8 w-8 ${
+                                <SheetContent side="right" className="w-60 sm:w-80">
+                                    <div className="flex flex-col items-center space-y-4 mt-8">
+                                        <a href='/' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">                                    
+                                            <div className="relative flex flex-col items-left overflow-hidden">
+                                                <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
                                                     isActive('/') 
                                                         ? 'text-secondary' 
-                                                        : 'group-hover:text-secondary'
-                                                }`} />
-                                            </div>
-                                            <div className="flex flex-col items-left">
-                                                <span className={`text-xl font-bold ${
+                                                        : 'text-gray-700 group-hover:-translate-y-full'
+                                                }`}>INICIO</span>
+                                                <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
                                                     isActive('/') 
-                                                        ? 'text-secondary' 
-                                                        : 'text-gray-700 group-hover:text-secondary'
-                                                }`}>Inicio</span>
-                                                <span className={`text-sm font-medium ${
-                                                    isActive('/') 
-                                                        ? 'text-secondary/80' 
-                                                        : 'text-gray-500 group-hover:text-secondary'
-                                                }`}>Érase una vez...</span>
-                                            </div>
-                                            
+                                                        ? 'translate-y-0' 
+                                                        : 'group-hover:-translate-y-full'
+                                                }`}>INICIO</span>
+                                            </div> 
                                         </a>
 
-                                        <a href='/lugares' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
-                                            <div>
-                                                <Milestone className={`h-8 w-8 ${
-                                                    isActive('/lugares') 
+                                        <a href='/sitios' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
+                                            <div className="relative flex flex-col items-left overflow-hidden">
+                                                <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
+                                                    isActive('/sitios') 
                                                         ? 'text-secondary' 
-                                                        : 'group-hover:text-secondary'
-                                                }`} />
-                                            </div>
-                                            <div className="flex flex-col items-left">
-                                                <span className={`text-xl font-bold ${
-                                                    isActive('/lugares') 
-                                                        ? 'text-secondary' 
-                                                        : 'text-gray-700 group-hover:text-secondary'
-                                                }`}>Lugares</span>
-                                                <span className={`text-sm font-medium ${
-                                                    isActive('/lugares') 
-                                                        ? 'text-secondary/80' 
-                                                        : 'text-gray-500 group-hover:text-secondary'
-                                                }`}>Para comprar</span>
-                                            </div>
-                                            
+                                                        : 'text-gray-700 group-hover:-translate-y-full'
+                                                }`}>SITIOS</span>
+                                                <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
+                                                    isActive('/sitios') 
+                                                        ? 'translate-y-0' 
+                                                        : 'group-hover:-translate-y-full'
+                                                }`}>SITIOS</span>
+                                            </div> 
                                         </a>
 
                                         <a href='/eventos' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
-                                            <div>
-                                                <Swords className={`h-8 w-8 ${
+                                            <div className="relative flex flex-col items-left overflow-hidden">
+                                                <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
                                                     isActive('/eventos') 
                                                         ? 'text-secondary' 
-                                                        : 'group-hover:text-secondary'
-                                                }`} />
-                                            </div>
-                                            <div className="flex flex-col items-left">
-                                                <span className={`text-xl font-bold ${
+                                                        : 'text-gray-700 group-hover:-translate-y-full'
+                                                }`}>EVENTOS</span>
+                                                <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
                                                     isActive('/eventos') 
-                                                        ? 'text-secondary' 
-                                                        : 'text-gray-700 group-hover:text-secondary'
-                                                }`}>Eventos</span>
-                                                <span className={`text-sm font-medium ${
-                                                    isActive('/eventos') 
-                                                        ? 'text-secondary/80' 
-                                                        : 'text-gray-500 group-hover:text-secondary'
-                                                }`}>Para disfrutar</span>
-                                            </div>
-                                            
+                                                        ? 'translate-y-0' 
+                                                        : 'group-hover:-translate-y-full'
+                                                }`}>EVENTOS</span>
+                                            </div> 
                                         </a>
 
-                                        <a href='/frikpro' className="flex flex-row gap-2 place-items-center px-3 py-2 transition-colors group rounded-full hover:bg-accent">
-                                            <div>
-                                                <Crown className={`h-8 w-8 ${
+                                        <a href='/frikpro' className="flex flex-row gap-2 place-items-center px-3 py-2 rounded-full transition-colors group">
+                                            <div className="relative flex flex-col items-left overflow-hidden">
+                                                <span className={`text-lg font-normal transition-transform duration-300 ease-in-out ${
                                                     isActive('/frikpro') 
                                                         ? 'text-secondary' 
-                                                        : 'group-hover:text-secondary'
-                                                }`} />
-                                            </div>
-                                            <div className="flex flex-col items-left">
-                                                <span className={`text-xl font-bold ${
+                                                        : 'text-gray-700 group-hover:-translate-y-full'
+                                                }`}>FRIKPRO</span>
+                                                <span className={`absolute top-full text-lg font-normal text-secondary transition-transform duration-300 ease-in-out ${
                                                     isActive('/frikpro') 
-                                                        ? 'text-secondary' 
-                                                        : 'text-gray-700 group-hover:text-secondary'
-                                                }`}>frik<span className="text-xl font-black text-secondary group-hover:text-secondary">pro</span></span>
-                                                <span className={`text-sm font-medium ${
-                                                    isActive('/frikpro') 
-                                                        ? 'text-secondary/80' 
-                                                        : 'text-gray-500 group-hover:text-secondary'
-                                                }`}>Hazte Pro</span>
-                                            </div>
+                                                        ? 'translate-y-0' 
+                                                        : 'group-hover:-translate-y-full'
+                                                }`}>FRIKPRO</span>
+                                            </div> 
                                         </a>
                                     
-                                        <hr className="mt-6 mb-10" />
+                                        <div className="mt-6 mb-10 bg-gray-600 h-px w-full" />
                                     
                                         <div className="px-3 space-y-3">
-                                            <Button variant="ghost" size="lg" className="w-full text-lg" asChild>
-                                                <a href="/api/login" >Iniciar Sesión</a>
+                                            <Button variant="ghost" size="lg" className="w-full font-normal text-sm" asChild>
+                                                <a href="/api/login" >INICIAR SESIÓN</a>
                                             </Button>
-                                            <Button size="lg" className="w-full text-lg" asChild>
-                                                <a href="/api/login">Registrarse</a>
+                                            <Button size="lg" className="w-full font-normal text-sm" asChild>
+                                                <a href="/api/login">REGISTRARSE</a>
                                             </Button>
                                             </div>
                                     </div>
