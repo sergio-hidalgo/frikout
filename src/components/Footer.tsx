@@ -1,6 +1,6 @@
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaBluesky, FaXTwitter } from "react-icons/fa6";
-import logoUrl from "../assets/logo_frikout.png";
+import logoUrl from "../assets/frikout_logo_dark.png";
 
 export function Footer() {
     return (
@@ -34,7 +34,7 @@ export function Footer() {
                         {/* Directory Links */}
                         <div className="flex flex-col gap-2 mb-4 lg:mb-0">
                             <h2 className="text-gray-200 text-2xl lg:text-xl font-bold">Directorio</h2>
-                            <a href="#" className="text-gray-400 hover:text-gray-300 text-xl lg:text-lg">Lugares</a>
+                            <a href="#" className="text-gray-400 hover:text-gray-300 text-xl lg:text-lg">Sitios</a>
                             <a href="#" className="text-gray-400 hover:text-gray-300 text-xl lg:text-lg">Eventos</a>
                             <a href="#" className="text-gray-400 hover:text-gray-300 text-xl lg:text-lg">Categorías</a>
                             <a href="#" className="text-gray-400 hover:text-gray-300 text-xl lg:text-lg">Ciudades</a>

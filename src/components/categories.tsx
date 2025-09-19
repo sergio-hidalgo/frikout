@@ -1,4 +1,5 @@
 import type { Category } from "@/lib/types";
+import { Button } from "@/components/ui/button";
 import CategoriesCard from "./categories-card";
 import comics from "@/assets/comics.png";
 import cosplay from "@/assets/cosplay.png";
@@ -18,13 +19,7 @@ const categories: Category[] = [
     icon: <BookOpenText className="h-4 w-4 text-secondary" />
   },
   {
-    title: "Cosplay",
-    count: "98",
-    img: cosplay,
-    icon: <VenetianMask className="h-4 w-4 text-secondary" />
-  },
-  {
-    title: "D&Ds",
+    title: "Juegos de rol",
     count: "75",
     img: dandd,
     icon: <Dices className="h-4 w-4 text-secondary" />
@@ -48,33 +43,34 @@ const categories: Category[] = [
     icon: <ToyBrick className="h-4 w-4 text-secondary" />
   },
   {
-    title: "Eventos",
-    count: "90",
-    img: outdoors,
-    icon: <Calendar className="h-4 w-4 text-secondary" />
-  },
-  {
-    title: "Steampunk",
-    count: "23",
-    img: steampunk,
-    icon: <Cog className="h-4 w-4 text-secondary" />
-  },
+    title: "Cosplay",
+    count: "98",
+    img: cosplay,
+    icon: <VenetianMask className="h-4 w-4 text-secondary" />
+  }
 ];
 
 export function Categories() {
   return (
-    <section className="py-30 lg:py-24 px-6 bg-gray-100">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative py-30 lg:py-24 px-6 bg-gray-100">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-secondary mb-4 select-none">Explora por Categorías</h2>
-          <p className="text-xl lg:text-2xl text-gray-500 select-none">Encuentra tu pasión friki</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 select-none">Categorías Favoritas</h2>
+          <p className="text-xl lg:text-2xl text-gray-500 select-none">Las categorías más buscadas en estos momentos</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
           {categories.map((category) => (
             <CategoriesCard key={category.title} category={category} />
           ))}
         </div>
+        <div className="mt-12 flex justify-center">
+            <Button variant="default" size="lg" className="self-center min-w-1/3">
+                <span className="text-md font-normal self-center">VER TODAS LAS CATEGORÍAS</span>
+            </Button>
+        </div>
       </div>
+      <div className="absolute inset-0 z-0 h-full w-full bg-white bg-[radial-gradient(#e1ebc6_3px,transparent_3px)] [background-size:32px_32px]"></div>
     </section>
   )
 }
+

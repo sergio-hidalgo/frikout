@@ -73,10 +73,10 @@ const events: Event[] = [
 
 export function NextEvents() {
     return (
-        <section className="py-30 lg:py-24 px-6 bg-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center items-center justify-center">
+        <section className="relative py-30 lg:py-24 px-6 bg-white">
+            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center items-center justify-center">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 select-none">Próximos Eventos</h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-secondary mb-4 select-none">Próximos Eventos</h2>
                     <p className="text-xl lg:text-2xl text-gray-500 select-none">No te pierdas las mejores convenciones y eventos frikis</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -85,11 +85,12 @@ export function NextEvents() {
                 ))}
                 </div>
                 <div className="mt-12 flex justify-center">
-                    <Button variant="default" size="lg" className="self-center min-w-1/3">
-                        <span className="text-md self-center">Ver todos los eventos</span>
+                    <Button variant="secondary" size="lg" className="self-center min-w-1/3">
+                        <span className="text-md font-normal self-center">VER TODOS LOS EVENTOS</span>
                     </Button>
                 </div>
             </div>
+            <div className="absolute top-0 left-0 right-0 bottom-0 z-0 h-full w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
         </section>
     )
 }
