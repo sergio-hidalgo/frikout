@@ -26,7 +26,7 @@ export function BackToTop() {
     return (
         <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-4 rounded-full bg-secondary text-white shadow-2xl hover:bg-secondary/80 hover:scale-110 transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 p-4 rounded-full bg-secondary text-white shadow-2xl hover:bg-chart-6 hover:scale-110 transition-all duration-300 ${
         isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-2 pointer-events-none"
@@ -34,7 +34,7 @@ export function BackToTop() {
         style={{ zIndex: 99999 }}
         aria-label="Volver arriba"
         >
-            <ArrowBigUp className="h-6 w-6 m-2 self-center items-center" />
+            <ArrowBigUp className="h-6 w-6 self-center items-center" />
         </button>
     );
 }

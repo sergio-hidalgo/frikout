@@ -1,8 +1,10 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { Header } from '../components/Header';
 import { BackToTop } from '../components/back-to-top';
 import { Footer } from '@/components/Footer';
+import { CookiesConsent } from '@/components/cookies-consent';
 
 export interface Props {
 	title: string;
@@ -30,6 +32,9 @@ import '../styles/global.css';
 		<Header client:load transition:persist currentPath={currentPath} />
 		<slot />
 		<BackToTop client:visible transition:persist />
+		<CookiesConsent client:load transition:persist />
 		<Footer client:visible transition:persist />
+		<SpeedInsights />
+		
 	</body>
 </html>	
